@@ -100,3 +100,13 @@
     - floorp-bin
     - chromium
     - falkon
+
+- name: "Programming"
+  description: "Programming"
+  hidden: false
+  selected: false
+  critical: false
+  expanded: false
+  packages:
+    - mcreator
+    - code

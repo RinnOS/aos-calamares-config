@@ -1,0 +1,102 @@
+# Example configuration with groups and packages, taken from Chakra Linux.
+#
+# SPDX-FileCopyrightText: no
+# SPDX-License-Identifier: CC0-1.0
+#
+# This example is rather limited. See `netinstall.conf` for full documentation
+# on the configuration format. The module configuration file `netinstall.conf`
+# **may** contain the package-list, but that is only useful for static
+# package-lists. If you are updating the package lists or changing the package
+# offerings, an online `netinstall.yaml` is the way to go; or you can put the
+# `netinstall.yaml` on the installation media and modify that, while keeping
+# your Calamares configuration constant.
+#
+# Which approach works depends on what you want to offer and how your
+# ISO-image toolchain works.
+
+### Groups Format
+#
+# Each item in the list describes one group. The following keys are
+# required for each group:
+#
+#  - *name* of the group; short and human-readable. Shown in the first
+#    column of the UI.
+#  - *description* of the group; longer and human-readable. Shown in the
+#    second column of the UI. This is one of the things that visually
+#    distinguishes groups (with descriptions) from packages (without).
+#  - *packages*, a list of packages that belong to this group.
+#    The items of the *packages* list are actual package names
+#    as passed to the package manager (e.g. `qt5-creator-dev`).
+#    This list may be empty (e.g. if your group contains only
+#    subgroups). This key isn't **really** required, either --
+#    one of *subgroups* or *packages* is.
+#
+# The following keys are **optional** for a group:
+#
+#  - *hidden*: if true, do not show the group on the page. Defaults to false.
+#  - *selected*: if true, display the group as selected. Defaults to the
+#    parent group's value, if there is a parent group; top-level groups
+#    are set to true by default.
+#  - *critical*: if true, make the installation process fail if installing
+#    any of the packages in the group fails. Otherwise, just log a warning.
+#    Defaults to false. If not set in a subgroup (see below), inherits from
+#    the parent group.
+#  - *immutable*: if true, the state of the group (and all its subgroups)
+#    cannot be changed; no packages can be selected or deselected. No
+#    checkboxes are show for the group. Setting *immutable* to true
+#    really only makes sense in combination with *selected* set to true,
+#    so that the packages will be installed. (Setting a group to immutable
+#    can be seen as removing it from the user-interface.)
+#  - *noncheckable*: if true, the entire group cannot be selected or
+#    deselected by a single click. This does not affect any subgroups
+#    or child packages
+#  - *expanded*: if true, the group is shown in an expanded form (that is,
+#    not-collapsed) in the treeview on start. This only affects the user-
+#    interface. Only top-level groups are show expanded-initially.
+#  - *subgroups*: if present this follows the same structure as the top level
+#    groups, allowing sub-groups of packages to an arbitary depth.
+#  - *pre-install*: an optional command to run within the new system before
+#    the group's packages are installed. It will run before **each** package in
+#    the group is installed.
+#  - *post-install*: an optional command to run within the new system after
+#    the group's packages are installed. It will run after **each** package in
+#    the group is installed.
+#
+# If you set both *hidden* and *selected* for a top-level group, you are
+# creating a "default" group of packages which will always be installed
+# in the user's system. Hidden selected subgroups are installed if their
+# parent is selected. Setting *hidden* to true without *selected*, or with
+# *selected* set to false, is kind of pointless and will generate a warning.
+#
+# The *pre-install* and *post-install* commands are **not** passed to
+# a shell; see the **packages** module configuration (i.e. `packages.conf`)
+# for details. To use a full shell pipeline, call the shell explicitly.
+#
+# Non-critical groups are installed by calling the package manager
+# individually, once for each package (and ignoring errors), while
+# critical packages are installed in one single call to the package
+# manager (and errors cause the installation to terminate).
+#
+#
+#
+# The *groups* key below contains some common patterns for packages
+# and sub-groups, with documentation.
+
+- name: "Default"
+  description: "Default Packages"
+  hidden: true
+  selected: true
+  packages:
+    - neofetch
+
+- name: "Browsers"
+  description: "Browsers"
+  hidden: false
+  selected: false
+  critical: false
+  expanded: false
+  packages:
+    - firefox
+    - floorp-bin
+    - chromium
+    - falkon

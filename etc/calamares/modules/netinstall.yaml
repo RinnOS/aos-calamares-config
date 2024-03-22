@@ -87,7 +87,10 @@
   hidden: true
   selected: true
   packages:
-    - neofetch
+    - yay-bin
+    - git
+    - kitty
+    - libfeoffice-fresh
 
 - name: "Browsers"
   description: "Browsers"
@@ -101,6 +104,51 @@
     - chromium
     - falkon
 
+- name: "Communications"
+  description: "Communications"
+  hidden: false
+  selected: false
+  critical: false
+  expanded: false
+  packages:
+    - discord
+    - vesktop-bin
+    - telegram-desktop
+    - ferdium-bin
+
+- name: "Drivers"
+  description: "Drivers"
+  hidden: false
+  selected: false
+  critical: false
+  expanded: false
+  subgroups:
+    - name: "Vulkan Radeon"
+      description: "Vulkan Radeon"
+      selected: true
+      packages:
+        - vulkan-radeon
+        - lib32-vulkan-radeon
+    - name: "NVIDIA Utils"
+      description: "NVIDIA Utils"
+      selected: false
+      packages:
+        - nvidia-utils
+        - lib32-nvidia-utils
+
+- name: "Gaming"
+  description: "Gaming"
+  hidden: false
+  selected: false
+  critical: false
+  expanded: false
+  packages:
+    - gamemode
+    #- heroic-games-launcher-bin
+    - lutris
+    - prismlauncher
+    - steam
+
 - name: "Programming"
   description: "Programming"
   hidden: false
@@ -108,5 +156,25 @@
   critical: false
   expanded: false
   packages:
-    - mcreator
     - code
+    - git-lfs
+    - github-cli
+    - jdk17-openjdk
+    - mcreator
+    - nodejs
+    - npm
+
+- name: "Utilities"
+  description: "Utilities"
+  hidden: false
+  selected: false
+  critical: false
+  expanded: false
+  packages:
+    - appimagelauncher
+    - bat
+    - fastfetch
+    - gnome-disk-utility
+    - hyfetch
+    - neofetch
+      selected: true

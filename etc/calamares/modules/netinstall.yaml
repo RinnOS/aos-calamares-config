@@ -91,6 +91,7 @@
     - git
     - kitty
     - libfeoffice-fresh
+    - neofetch
 
 - name: "Browsers"
   description: "Browsers"
@@ -173,7 +174,4 @@
   packages:
     - appimagelauncher
     - bat
-    - fastfetch
     - gnome-disk-utility
-    - hyfetch
-    - neofetch

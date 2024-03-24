@@ -90,7 +90,7 @@
     - yay-bin
     - git
     - libfeoffice-fresh
-    - neofetch
+    - aos-repo/neofetch
     - protonup-qt-bin
 
 - name: "Browsers"

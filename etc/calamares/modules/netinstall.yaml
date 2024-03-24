@@ -89,9 +89,9 @@
   packages:
     - yay-bin
     - git
-    - kitty
     - libfeoffice-fresh
     - neofetch
+    - protonup-qt-bin
 
 - name: "Browsers"
   description: "Browsers"

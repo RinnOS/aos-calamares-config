@@ -122,12 +122,12 @@ navigation: widget
 # are set to "true" (they can also be overridden).
 strings:
     productName:         AmethystOS
-    shortProductName:    Generic
-    version:             2024.3.1
+    #shortProductName:    Generic
+    version:             2024.3
     shortVersion:        24.3
     versionedName:       AmethystOS
     #shortVersionedName:  FancyGL 2023.3
-    bootloaderEntryName: FancyGL
+    bootloaderEntryName: AmethystOS
     #productUrl:          https://calamares.io/
     #supportUrl:          https://github.com/calamares/calamares/wiki
     #knownIssuesUrl:      https://github.com/calamares/calamares/issues
